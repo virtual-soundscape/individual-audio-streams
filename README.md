@@ -4,7 +4,7 @@
 
 Prototype for managing individual audio streams
 
-> Live at https://virtual-soundscape.github.io/individual-audio-streams/index.html
+> Live at https://virtual-soundscape.github.io/individual-audio-streams
 
 ## Features
 
