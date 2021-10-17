@@ -1,6 +1,6 @@
 {
   "name": "independent-audio-streams",
-  "homepage": "https://virtual-soundscape.github.io/individual-audio-streams/",
+  "homepage": "http://virtual-soundscape.github.io/individual-audio-streams",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
