@@ -4,12 +4,15 @@
 
 Prototype for managing individual audio streams
 
+> Live at https://virtual-soundscape.github.io/individual-audio-streams/index.html
+
 ## Features
 
 - Add multiple audio tracks
 - For each audio track, independently control:
     - Play/pause state
     - Volume
+- Custom `useAudioFile()` hook
 
 ## Getting Started
 

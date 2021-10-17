@@ -1,44 +1,12 @@
 import React from "react";
+
 import { Button, Card, Stack } from "react-bootstrap";
+
 import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
+import useAudioFile from "../hooks/useAudioFile";
 
-function useAudioFile(file) {
-    const [isPlaying, setPlaying] = React.useState(false);
-
-    const audio = React.useMemo(
-        () => new Audio(URL.createObjectURL(file)),
-        [file]
-    );
-
-    const play = () => {
-        audio.play();
-        setPlaying(true);
-    };
-
-    const pause = () => {
-        audio.pause();
-        setPlaying(false);
-    };
-
-    return {
-        volume: {
-            value: audio.volume,
-            set: (volume) => {
-                audio.volume = volume;
-            },
-        },
-        play,
-        pause,
-        playState: {
-            value: isPlaying,
-            toggle: () => {
-                isPlaying ? pause() : play();
-            },
-        },
-    };
-}
 
 function AudioTrack_Loaded({ audio, removeTrack }) {
     const { name, file } = audio;
