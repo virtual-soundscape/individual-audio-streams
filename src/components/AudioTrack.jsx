@@ -12,6 +12,16 @@ function useAudioFile(file) {
         [file]
     );
 
+    const play = () => {
+        audio.play();
+        setPlaying(true);
+    };
+
+    const pause = () => {
+        audio.pause();
+        setPlaying(false);
+    };
+
     return {
         volume: {
             value: audio.volume,
@@ -19,17 +29,12 @@ function useAudioFile(file) {
                 audio.volume = volume;
             },
         },
-
+        play,
+        pause,
         playState: {
             value: isPlaying,
             toggle: () => {
-                if (isPlaying) {
-                    audio.pause();
-                    setPlaying(false);
-                } else {
-                    audio.play();
-                    setPlaying(true);
-                }
+                isPlaying ? pause() : play();
             },
         },
     };
@@ -37,7 +42,7 @@ function useAudioFile(file) {
 
 function AudioTrack_Loaded({ audio, removeTrack }) {
     const { name, file } = audio;
-    const { playState, volume } = useAudioFile(file);
+    const { pause, playState, volume } = useAudioFile(file);
 
     const handleVolumeSlider = ({ value, dragging, index, ...restProps }) => {
         volume.set(value / 100);
@@ -74,7 +79,10 @@ function AudioTrack_Loaded({ audio, removeTrack }) {
             />
             <Button
                 variant="danger"
-                onClick={removeTrack}
+                onClick={() => {
+                    pause();
+                    removeTrack();
+                }}
             >
                 Delete
             </Button>
