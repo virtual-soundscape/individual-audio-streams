@@ -23,3 +23,7 @@ $ npm install
 # View on localhost:3000
 $ npm run dev
 ```
+
+## Acknowledgements
+
+Sample music files under `media/` obtained from https://www.bensound.com, intended for testing purposes.
